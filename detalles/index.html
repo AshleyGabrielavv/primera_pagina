@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RINCON BONITO</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- ======= ESTILOS PERSONALIZADOS ======= -->
+<style>
+    /* ----- Colores base pastel ----- */
+    :root{
+        --rosa: #f9d5e5;
+        --rosa-claro: #fceef5;
+        --lavanda: #d7c5f7;
+        --rosita: #f7ddfd;
+        --texto: #6d4c77;
+    }
+
+    body{
+        background-color: var(--rosa-claro);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--texto);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar{
+        background: linear-gradient(90deg, var(--rosa) 0%, var(--lavanda) 100%);
+    }
+    .navbar-brand{
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: var(--texto) !important;
+    }
+    .navbar-nav .nav-link{
+        color: var(--texto) !important;
+        font-weight: 500;
+    }
+    .navbar-nav .nav-link:hover{
+        color: #000 !important;
+    }
+    .btn-outline-primary{
+        color: var(--texto);
+        border-color: var(--texto);
+    }
+    .btn-outline-primary:hover{
+        background-color: var(--lavanda);
+        color: #fff;
+    }
+
+    /* ===== ENCABEZADO ===== */
+    header{
+        background: var(--menta);
+        padding: 60px 20px;
+        text-align: center;
+    }
+    header h1{
+        font-size: 3rem;
+        color: var(--texto);
+        font-weight: bold;
+    }
+    header p{
+        font-size: 1.2rem;
+        color: #5b4a5f;
+    }
+
+    /* ===== CARRUSEL ===== */
+    .carousel-caption{
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 15px;
+        padding: 10px;
+    }
+    .carousel-caption h5{
+        color: var(--texto);
+        font-weight: bold;
+    }
+    .carousel-caption p{
+        color: #4b3d52;
+    }
+
+    /* ===== CARDS ===== */
+    .card{
+        border: none;
+        background-color: #fff;
+        border-radius: 20px;
+        transition: transform 0.2s ease;
+    }
+    .card:hover{
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .card-title{
+        color: var(--texto);
+        font-weight: bold;
+    }
+    .btn-primary{
+        background-color: var(--lavanda);
+        border: none;
+    }
+    .btn-primary:hover{
+        background-color: var(--rosa);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+        background: linear-gradient(90deg, var(--lavanda) 0%, var(--rosa) 100%);
+        color: var(--texto);
+    }
+
+    /* ==== SECCIÓN DE BIENVENIDA ==== */
+.bienvenida {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ffe6f2 0%, #e6f7ff 100%);
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+.bienvenida h2 {
+  font-size: 2.5rem;
+  color: #d26fa4;
+}
+.bienvenida p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+.boton-bonito {
+  display: inline-block;
+  background-color: #f9b8d1;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.boton-bonito:hover {
+  background-color: #f78db5;
+}
+
+/* ==== CATÁLOGO DE PRODUCTOS ==== */
+.productos {
+  padding: 40px 20px;
+  text-align: center;
+}
+.productos h2 {
+  color: #d26fa4;
+  margin-bottom: 30px;
+}
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.producto {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s;
+}
+.producto:hover { transform: translateY(-5px); }
+.producto img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+.producto h3 {
+  color: #d26fa4;
+  margin-bottom: 10px;
+}
+.producto p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ==== FRASE MOTIVADORA ==== */
+.frase-dia {
+  font-style: italic;
+  color: #a678b5;
+  background-color: #f9f1ff;
+  border-left: 5px solid #d26fa4;
+  padding: 20px;
+  margin: 50px auto;
+  max-width: 700px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+/* ==== FORMULARIO DE CONTACTO ==== */
+.contacto {
+  background: #ffe6f2;
+  padding: 40px 20px;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 60px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.contacto h2 {
+  color: #d26fa4;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #f9b8d1;
+  border-radius: 10px;
+}
+.contacto button {
+  background: #f9b8d1;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.contacto button:hover {
+  background: #f78db5;
+}
+
+/* ==== BOTÓN VOLVER ARRIBA ==== */
+#btnArriba {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #f9b8d1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+#btnArriba:hover { background: #f78db5; }
+</style>
+
+</head>
+
+<body>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">RINCON BONITO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Productos</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Servicios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Arreglos personalizados</a></li>
+            <li><a class="dropdown-item" href="#">Envíos a domicilio</a></li>
+            <li><a class="dropdown-item" href="#">Decoración de eventos</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+
+      <form class="d-flex ms-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar detalles..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== ENCABEZADO ===== -->
+<header>
+    <img src="logo.jpeg"
+         alt="Logo RINCON BONITO"
+         width="220"
+         class="rounded shadow mb-3">
+    <h1>BIENVENIDOS A RINCON BONITO</h1>
+    <p>El lugar ideal para encontrar detalles dulces, delicados y llenos de encanto</p>
+</header>
+
+<!-- ===== CARRUSEL DE PRODUCTOS ===== -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="ramoflores.jpeg" class="d-block w-100" alt="Regalo 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Regalos de cumpleaños</h5>
+        <p>Elige el detalle perfecto para celebrar momentos únicos.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="cajasorpresa.jpeg" class="d-block w-100" alt="Regalo 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Decoraciones románticas</h5>
+        <p>Haz cada rincón más especial con nuestros arreglos de ensueño.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="velasaromaticas.jpeg" class="d-block w-100" alt="Regalo 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Detalles de temporada</h5>
+        <p>Encuentra regalos encantadores para cualquier época del año.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+<!-- ===== SECCIÓN DE PRODUCTOS ===== -->
+<section class="container my-5">
+  <h2 class="text-center mb-4" style="color: var(--texto);">Nuestros Productos Destacados</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- Producto 1 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img src="ramoflores.jpeg" class="card-img-top" alt="Ramo de flores">
+        <div class="card-body">
+          <h5 class="card-title">Ramo de flores</h5>
+          <p class="card-text">Un clásico lleno de encanto, ideal para expresar amor y gratitud.</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFlores">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img src="cajasorpresa.jpeg" class="card-img-top" alt="Caja sorpresa">
+        <div class="card-body">
+          <h5 class="card-title">Caja sorpresa</h5>
+          <p class="card-text">Llena de dulces y pequeños obsequios para sorprender a quien amas.</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCaja">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="col">
+      <div class="card shadow-sm h-100">
+        <img src="velasaromaticas.jpeg" class="card-img-top" alt="Velas aromáticas">
+        <div class="card-body">
+          <h5 class="card-title">Velas aromáticas</h5>
+          <p class="card-text">Perfuma el ambiente con nuestras velas de fragancias delicadas.</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalVelas">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MODALES ================= -->
+
+<!-- Modal Ramo de flores -->
+<div class="modal fade" id="modalFlores" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#f8d7da;">
+        <h5 class="modal-title">Ramo de flores</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Un hermoso ramo de flores frescas cuidadosamente seleccionadas.  
+        Ideal para cumpleaños, aniversarios o simplemente para alegrar el día a alguien especial.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Caja sorpresa -->
+<div class="modal fade" id="modalCaja" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#f8d7da;">
+        <h5 class="modal-title">Caja sorpresa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Caja personalizada con dulces, chocolates y pequeños obsequios.  
+        Perfecta para sorprender en fechas especiales o como un detalle inesperado.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Velas aromáticas -->
+<div class="modal fade" id="modalVelas" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#f8d7da;">
+        <h5 class="modal-title">Velas aromáticas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Velas de cera natural con delicados aromas de vainilla, lavanda y jazmín.  
+        Perfectas para crear un ambiente relajante y acogedor en tu hogar.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SECCIÓN DE BIENVENIDA ====== -->
+<section class="bienvenida">
+  <h2>¡BIENVENIDOS A RINCON BONITO!</h2>
+  <p>Un lugar donde los pequeños detalles llenan de alegría tu día.  
+     Descubre regalos, decoración y accesorios en tonos pastel que
+     hacen de cada momento, algo especial.</p>
+  <a href="#productos" class="boton-bonito">Explorar productos</a>
+</section>
+
+<!-- ====== CATÁLOGO DE PRODUCTOS ====== -->
+<section id="productos" class="productos">
+  <h2>Nuestros productos</h2>
+  <div class="grid-productos">
+    <div class="producto">
+      <img src="taza.jpeg" alt="Taza de flores pastel">
+      <h3>Taza floral</h3>
+      <p>Perfecta para tu café de la mañana.</p>
+    </div>
+
+    <div class="producto">
+      <img src="velas.jpeg" alt="Vela aromática">
+      <h3>Vela de vainilla</h3>
+      <p>Un aroma dulce que ilumina tu hogar.</p>
+    </div>
+
+    <div class="producto">
+      <img src="cuadernos.jpeg" alt="Cuaderno pastel">
+      <h3>Cuaderno pastel</h3>
+      <p>Ideal para anotar tus mejores ideas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FRASE MOTIVADORA ====== -->
+<div class="frase-dia">
+  “La magia de la vida está en los pequeños detalles que nos hacen sonreír.”
+</div>
+
+<!-- ===== SOBRE NOSOTROS ===== -->
+<section class="container my-5" id="sobre-nosotros">
+  <h2 class="text-center mb-4" style="color: var(--texto);">Sobre nosotras</h2>
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img src="logo.jpeg" 
+           class="img-fluid rounded shadow-sm" alt="Rincón Bonito">
+    </div>
+    <div class="col-md-6 mt-4 mt-md-0">
+      <p style="font-size: 1.1rem;">
+        En <strong>RINCON BONITO</strong> creamos detalles que transmiten amor y alegría.
+        Nuestro objetivo es que cada regalo se convierta en un momento inolvidable.  
+        Con dedicación y un toque femenino, diseñamos productos llenos de encanto y ternura.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERÍA DE INSPIRACIÓN ===== -->
+<section class="container my-5" id="galeria">
+  <h2 class="text-center mb-4" style="color: var(--texto);">Galería de inspiración</h2>
+  <div class="row g-3">
+    <div class="col-6 col-md-4">
+      <img src="1.jpeg" class="img-fluid rounded shadow-sm" alt="Decoración 1">
+    </div>
+    <div class="col-6 col-md-4">
+      <img src="2.jpeg" class="img-fluid rounded shadow-sm" alt="Decoración 2">
+    </div>
+    <div class="col-6 col-md-4">
+      <img src="3.jpeg" class="img-fluid rounded shadow-sm" alt="Decoración 3">
+    </div>
+    <div class="col-6 col-md-4">
+      <img src="4.jpeg" class="img-fluid rounded shadow-sm" alt="Decoración 4">
+    </div>
+    <div class="col-6 col-md-4">
+      <img src="5.jpeg" class="img-fluid rounded shadow-sm" alt="Decoración 5">
+    </div>
+    <div class="col-6 col-md-4">
+      <img src="6.jpeg" class="img-fluid rounded shadow-sm" alt="Decoración 6">
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIOS ===== -->
+<section class="container my-5" id="testimonios">
+  <h2 class="text-center mb-4" style="color: var(--texto);">Lo que dicen nuestras clientas</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    
+    <div class="col">
+      <div class="card shadow-sm h-100 text-center border-0" style="background-color:#f8d7da;">
+        <div class="card-body">
+          <p class="card-text">“¡Quedé fascinada! Los detalles de Rincón Bonito hicieron que mi aniversario fuera aún más especial.”</p>
+          <h6 class="fw-bold">— Laura G.</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm h-100 text-center border-0" style="background-color:#f8d7da;">
+        <div class="card-body">
+          <p class="card-text">“Hermosos productos, entregados a tiempo y con una presentación impecable. ¡100% recomendado!”</p>
+          <h6 class="fw-bold">— Camila R.</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm h-100 text-center border-0" style="background-color:#f8d7da;">
+        <div class="card-body">
+          <p class="card-text">“Cada detalle está hecho con tanto cariño que se nota. Me encantó la caja sorpresa.”</p>
+          <h6 class="fw-bold">— Sofía M.</h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== FORMULARIO DE CONTACTO ====== -->
+<section class="contacto">
+  <h2>Contáctanos</h2>
+  <form>
+    <input type="text" placeholder="Tu nombre" required>
+    <input type="email" placeholder="Tu correo" required>
+    <textarea placeholder="Escribe tu mensaje" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<!-- ====== BOTÓN VOLVER ARRIBA ====== -->
+<button id="btnArriba">⬆</button>
+
+<!-- ====== SCRIPT PARA BOTÓN ARRIBA ====== -->
+<script>
+  const btn = document.getElementById('btnArriba');
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.scrollY > 200 ? 'block' : 'none';
+  });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+<!-- ===== FOOTER ===== -->
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-0">&copy; 2025 RINCON BONITO. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
